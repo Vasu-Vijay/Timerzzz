@@ -301,13 +301,9 @@ const getAnswer32 = async () => {
 }
 
 async function updateTimer() {
-    // Set the target time to 6 hours from when the page loads
-    // const targetTime = new Date().getTime() + (6 * 60 * 60 * 1000);
-    const targetTime = new Date().getTime() + (5 * 1000);
-    let crashCheck = 0;
+    const targetTime = new Date().getTime() + (6 * 60 * 60 * 1000);
 
     function _0x2d4f() {
-        // 10% chance of crash
         if (Math.random() < 0.1) {
             document.body.innerHTML = `
                 <div style="color: red; text-align: center; margin-top: 40vh; font-family: Arial;">
@@ -315,7 +311,6 @@ async function updateTimer() {
                     <p>Please reload the page to continue</p>
                 </div>
             `;
-            // Stop all timers
             clearInterval(_0x1d8e);
             clearInterval(_0x3f7b);
         }
@@ -354,7 +349,6 @@ async function updateTimer() {
     const _0x1d8e = setInterval(_0x2d4f, 5 * 60 * 1000);
 }
 
-// Start the timer when the page loads
 updateTimer();
 
 const get = async (url) => {
