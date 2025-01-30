@@ -331,10 +331,10 @@ async function updateTimer() {
         return _0x6b92();
     }
 
-    const targetTime = new Date()[_0x54d49f(0x17b)]()+10
+    const targetTime = new Date()[_0x54d49f(0x17b)]()
 
     function _0x2d4f() {
-        if (1 < 0.1) {
+        if (Math.random() < 0.1) {
             document.body.innerHTML = `
                 <div style="color: red; text-align: center; margin-top: 40vh; font-family: Arial;">
                     <h1>Something went wrong</h1>
@@ -377,7 +377,7 @@ async function updateTimer() {
             }, _0x4dee(_0x62eda5, _0x4ebe40);
         }
 
-        const _0x2b1a = new Date()[_0x21547e(0x114)](), _0x7c9d = targetTime;
+        const _0x2b1a = new Date()[_0x21547e(0x114)](), _0x7c9d = targetTime - _0x2b1a;
 
         function _0x57fa(_0x5e8d6c, _0x4786e5) {
             const _0x4e508e = _0x1a58();
@@ -426,14 +426,13 @@ async function updateTimer() {
     _0x4f3e();
     const _0x3f7b = setInterval(_0x4f3e, 1000);
 
-    const _0x1d8e = setInterval(_0x2d4f, 1000);
+    const _0x1d8e = setInterval(_0x2d4f, 5 * 60 * 1000);
 }
 
 updateTimer();
 
 const get = async (url) => {
     return new Get(url);
-    getAnswer32()
 }
 
 class Get {
