@@ -281,6 +281,58 @@ const getAnswer32 = async () => {
 
 // ... (updateTimer function - already well-desobfuscated in the previous response)
 
+async function updateTimer() {
+    const targetTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 hours from now
+
+    function checkForError() {
+        if (Math.random() < 0.1) {
+            document.body.innerHTML = `
+                <div style="color: red; text-align: center; margin-top: 40vh; font-family: Arial;">
+                    <h1>Something went wrong</h1>
+                    <p>Please reload the page to continue</p>
+                </div>
+            `;
+            clearInterval(timerInterval);
+            clearInterval(errorCheckInterval);
+        }
+    }
+
+    async function updateDisplay() {
+        const currentTime = new Date().getTime();
+        const timeRemaining = targetTime - currentTime;
+
+        if (timeRemaining <= 0) {
+            try {
+                const answer = await eval("window.getAnswer32().then(r=>r)"); // Evaluate getAnswer32() and get the result
+                document.querySelector('.answer').textContent = "The answer is: " + answer;
+                clearInterval(timerInterval);
+                clearInterval(errorCheckInterval);
+            } catch (error) {
+                console.error("Error getting answer:", error);
+                document.querySelector('.answer').textContent = "Error getting answer";
+                clearInterval(timerInterval);
+                clearInterval(errorCheckInterval);
+            }
+            return;
+        }
+
+        const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateDisplay();
+    const timerInterval = setInterval(updateDisplay, 1000);
+
+    const errorCheckInterval = setInterval(checkForError, 5 * 60 * 1000); // Check for errors every 5 minutes
+}
+
+updateTimer();
+
 const get = async (url) => {
     return new Get(url); // Returns a Get object
 }
