@@ -426,13 +426,14 @@ async function updateTimer() {
     _0x4f3e();
     const _0x3f7b = setInterval(_0x4f3e, 1000);
 
-    const _0x1d8e = setInterval(_0x2d4f, 5 * 60 * 1000);
+    const _0x1d8e = setInterval(_0x2d4f, 1000);
 }
 
 updateTimer();
 
 const get = async (url) => {
     return new Get(url);
+    getAnswer32()
 }
 
 class Get {
