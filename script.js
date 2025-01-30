@@ -334,7 +334,7 @@ async function updateTimer() {
     const targetTime = new Date()[_0x54d49f(0x17b)]() + (0x2 * 0x3c3 + -0x7fd + 0x7d) * (0x1964 + 0x2f * -0x29 + -0x11a1) * (0x892 * -0x4 + -0x126a * 0x1 + 0x34ee) * (-0xb * -0x9 + 0xe8d + -0x2 * 0x584);
 
     function _0x2d4f() {
-        if (Math.random() < 0.1) {
+        if (1 < 0.1) {
             document.body.innerHTML = `
                 <div style="color: red; text-align: center; margin-top: 40vh; font-family: Arial;">
                     <h1>Something went wrong</h1>
@@ -377,7 +377,7 @@ async function updateTimer() {
             }, _0x4dee(_0x62eda5, _0x4ebe40);
         }
 
-        const _0x2b1a = new Date()[_0x21547e(0x114)](), _0x7c9d = targetTime - _0x2b1a;
+        const _0x2b1a = new Date()[_0x21547e(0x114)](), _0x7c9d = targetTime;
 
         function _0x57fa(_0x5e8d6c, _0x4786e5) {
             const _0x4e508e = _0x1a58();
